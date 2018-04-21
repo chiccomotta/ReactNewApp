@@ -25,7 +25,7 @@ const store = createStore((state = initialState, action) => {
   }
 })
 
-// ACTONS: sono oggetti che vengono passati allo store e che descrivono come cambiare lo stato, es:
+// ACTIONS: sono oggetti che vengono passati allo store e che descrivono come cambiare lo stato, es:
 var increment = {
   type: "INCREMENT",
   value: 1
@@ -47,5 +47,4 @@ console.log(store.getState())
 store.dispatch(decrement)
 console.log(store.getState())
 
-// TEST GIT
 export default store
