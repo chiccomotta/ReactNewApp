@@ -47,4 +47,5 @@ console.log(store.getState())
 store.dispatch(decrement)
 console.log(store.getState())
 
+// TEST GIT
 export default store
