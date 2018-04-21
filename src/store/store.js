@@ -5,6 +5,7 @@ const initialState = { counter: 0, name: "Cristiano Motta", role: "Developer" }
 
 // Creo lo store (createStore accetta una funziona con 2 parametri: lo stato iniziale e una action)
 const store = createStore((state = initialState, action) => {
+  console.log(state)
   switch (action.type) {
     case "INCREMENT":
       return {
