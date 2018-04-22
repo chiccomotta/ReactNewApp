@@ -1,24 +1,27 @@
-import React from "react"
-import ReactDOM from "react-dom"
-import { BrowserRouter, Route } from "react-router-dom"
+import React from 'react'
+import ReactDOM from 'react-dom'
+import { BrowserRouter, Route, Switch } from 'react-router-dom'
 
-import "./index.css"
-import App from "./App"
-import registerServiceWorker from "./registerServiceWorker"
+import './index.css'
+import App from './App'
+import { EditPage } from './pages/edit'
+import { AboutPage } from './pages/about'
+import { NotFoundPage } from './pages/notfound'
 
-const AboutPage = () => <div>About Page</div>
-
-const EditPage = () => <div style={{ color: "red" }}>Edit Web App Page </div>
+import registerServiceWorker from './registerServiceWorker'
 
 const routes = (
   <BrowserRouter>
-    <div>
+    <Switch>
+      <Route exact path="/" component={App} />
       <Route exact={true} path="/about" component={AboutPage} />
-      <Route exact={true} path="/" component={App} />
       <Route exact={true} path="/edit" component={EditPage} />
-    </div>
+
+      {/* è importante l'ordine: questa route deve essere l'ultima dello switch */}
+      <Route component={NotFoundPage} />
+    </Switch>
   </BrowserRouter>
 )
 
-ReactDOM.render(routes, document.getElementById("root"))
+ReactDOM.render(routes, document.getElementById('root'))
 registerServiceWorker()

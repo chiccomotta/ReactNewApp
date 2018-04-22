@@ -1,7 +1,13 @@
 import { createStore } from "redux"
 
 // Creo lo stato iniziale
-const initialState = { counter: 0, name: "Cristiano Motta", role: "Developer" }
+const initialState = {
+  counter: 0,
+  name: "Cristiano Motta",
+  role: "Developer",
+  files: [],
+  credits: 0
+}
 
 // Creo lo store (createStore accetta una funziona con 2 parametri: lo stato iniziale e una action)
 const store = createStore((state = initialState, action) => {
