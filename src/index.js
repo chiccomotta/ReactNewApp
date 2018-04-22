@@ -4,9 +4,7 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom'
 
 import './index.css'
 import App from './App'
-import { EditPage } from './pages/edit'
-import { AboutPage } from './pages/about'
-import { NotFoundPage } from './pages/notfound'
+import { EditPage, AboutPage, NotFoundPage } from './pages'
 
 import registerServiceWorker from './registerServiceWorker'
 
