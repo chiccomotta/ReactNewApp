@@ -1,4 +1,5 @@
 import React, { Component } from "react"
+import { BrowserRouter, Route } from "react-router-dom"
 import store from "./store/store"
 
 import logo from "./logo.svg"
