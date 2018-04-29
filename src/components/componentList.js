@@ -10,8 +10,7 @@ const componentList = ({ todos, name }) => {
   return (
     <div style={{ overflowY: 'scroll', height: '200px' }}>
       <div>{name}</div>
-
-      {todos.map((todo, i) => <p key={i}>{todo}</p>)}
+      <ul>{todos.map((todo, i) => <li key={i}>{todo}</li>)}</ul>
     </div>
   )
 }

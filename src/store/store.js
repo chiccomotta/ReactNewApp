@@ -1,4 +1,5 @@
 import { createStore } from 'redux'
+import update from 'immutability-helper'
 
 // Creo lo stato iniziale
 const initialState = {
@@ -29,16 +30,12 @@ const store = createStore((state = initialState, action) => {
       break
 
     case 'ADD_TODO':
-      return {
-        ...state,
-        todos: state.todos.concat(action.value)
-      }
+      return update(state, { todos: { $push: [action.value] } })
+      break
 
     case 'ADD_CREDITS':
-      return {
-        ...state,
-        credits: state.credits + action.credits
-      }
+      return update(state, { credits: { $set: state.credits + action.credits } })
+      break
 
     default:
       return state
