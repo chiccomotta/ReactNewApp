@@ -1,14 +1,14 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
+const style = { overflowY: 'scroll', height: '200px' }
+
 // Passo lo stato al componente tramite props
 const mapStateToProps = state => state
 
 const componentList = ({ todos, name }) => {
-  if (!todos) return null
-
   return (
-    <div style={{ overflowY: 'scroll', height: '200px' }}>
+    <div style={style}>
       <div>{name}</div>
       <ul>{todos.map((todo, i) => <li key={i}>{todo}</li>)}</ul>
     </div>
