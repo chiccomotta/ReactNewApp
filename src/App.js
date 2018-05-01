@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import { BrowserRouter, Route } from 'react-router-dom'
 
-import AddTodo from './components/addTodo'
-import ComponentList from './components/componentList'
+import AddTodo from './components/AddTodo'
+import ComponentList from './components/ComponentList'
 import logo from './logo.svg'
 import './App.css'
 import gatto from './images/gatto.jpg' // Tell Webpack this JS file uses this image
@@ -14,8 +14,8 @@ class App extends Component {
     return (
       <div className="App">
         <header className="App-header">
+          <img src={gatto} />
           <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
         </header>
 
         <AddTodo />

@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { actAddTodo, actAddCredits } from 'store/actionCreators'
+import { actAddTodo, actAddCredits } from 'store/ActionCreators'
 
 /******
     Sono le funzioni che voglio rendere disponibili, tramite le props, al componente.
@@ -32,11 +32,11 @@ class addTodo extends Component {
 
   render() {
     return (
-      <div>
-        <p>Aggiungi un TODO alla lista</p>
+      <div className="addTodo">
         <input type="text" value={this.state.todo} onChange={this.onChange} />
         <button onClick={this.setTodo}>Add todo</button>
         <button onClick={this.addCredits}>Add credits</button>
+        <p>Aggiungi un TODO alla lista</p>
       </div>
     )
   }
