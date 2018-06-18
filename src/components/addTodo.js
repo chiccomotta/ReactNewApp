@@ -30,12 +30,18 @@ class addTodo extends Component {
 
   addCredits = () => this.props.addCredits(1000)
 
+  testThis = () => {
+    console.log('testThis method called....')
+    console.log(this)
+  }
+
   render() {
     return (
       <div className="addTodo">
         <input type="text" value={this.state.todo} onChange={this.onChange} />
         <button onClick={this.setTodo}>Add todo</button>
         <button onClick={this.addCredits}>Add credits</button>
+        <button onClick={this.testThis}>Test This</button>
         <p>Aggiungi un TODO alla lista</p>
       </div>
     )

@@ -1,4 +1,4 @@
-import React, { Component } from "react"
+import React, { Component } from 'react'
 
 const withResize = Component =>
   class extends React.Component {
@@ -12,10 +12,11 @@ const withResize = Component =>
     }
 
     componentDidMount() {
-      window.addEventListener("resize", this.handleResize)
+      console.log('DidMount in withResize')
+      window.addEventListener('resize', this.handleResize)
     }
     componetWillUnmount() {
-      window.removeEventListener("resize", this.handleResize)
+      window.removeEventListener('resize', this.handleResize)
     }
 
     handleResize() {

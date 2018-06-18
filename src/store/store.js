@@ -13,7 +13,6 @@ const initialState = {
 
 // Creo lo store (createStore accetta una funziona con 2 parametri: lo stato iniziale e una action)
 const store = createStore((state = initialState, action) => {
-  console.log(state)
   switch (action.type) {
     case 'INCREMENT':
       return {
@@ -58,10 +57,11 @@ var decrement = {
 // store.dispatch(increment)
 // console.log(store.getState())
 
-// store.dispatch(increment)
-// console.log(store.getState())
-
 // store.dispatch(decrement)
 // console.log(store.getState())
+
+console.log('------------------')
+store.dispatch(increment)
+console.log(store.getState())
 
 export default store

@@ -1,6 +1,8 @@
-import React, { Component } from "react"
-import withResize from "./withResize"
+import React, { Component } from 'react'
+import { compose } from 'redux'
+import withResize from './withResize'
+import withDebug from './hoc/withDebug'
 
 const MyComponent = ({ innerWidth }) => <div>innerWidth: {innerWidth}</div>
 
-export default withResize(MyComponent)
+export default compose(withResize, withDebug)(MyComponent)

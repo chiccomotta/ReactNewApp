@@ -1,6 +1,6 @@
-import React, { Fragment } from "react"
-import Webcam from "react-webcam"
-import WebcamPreview from "./webcamPreview"
+import React, { Fragment } from 'react'
+import Webcam from 'react-webcam'
+import WebcamPreview from './webcamPreview'
 
 export default class WebcamCapture extends React.Component {
   constructor(props) {
@@ -19,6 +19,7 @@ export default class WebcamCapture extends React.Component {
     const { previews } = this.state
 
     const imageSrc = this.webcam.getScreenshot()
+    console.log('DATA', imageSrc)
 
     this.setState({
       previews: previews.concat(imageSrc)
@@ -31,12 +32,14 @@ export default class WebcamCapture extends React.Component {
         <div>
           <Webcam
             audio={false}
-            height={420}
-            width={420}
+            height={640}
+            width={480}
             ref={this.setRef}
             screenshotFormat="image/jpeg"
           />
-          {this.state.previews.length < 4 && <button onClick={this.capture}>Capture photo</button>}
+          {this.state.previews.length < 4 && (
+            <button onClick={this.capture}>Capture photo</button>
+          )}
         </div>
         <div>
           <WebcamPreview imageSources={this.state.previews} />
