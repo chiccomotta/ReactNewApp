@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { BrowserRouter, Route } from 'react-router-dom'
-
+import FetchComponent from './components/FetchComponent'
 import AddTodo from './components/AddTodo'
 import ComponentList from './components/ComponentList'
 import logo from './logo.svg'
@@ -15,8 +15,8 @@ class App extends Component {
     return (
       <div className="App">
         <header className="App-header">
-          <img src={gatto} />
-          <img src={logo} className="App-logo" alt="logo" />
+          {/* <img src={gatto} />
+          <img src={logo} className="App-logo" alt="logo" /> */}
         </header>
 
         <AddTodo />
@@ -31,8 +31,8 @@ class App extends Component {
           <ComponentList />
         </div>
         <MyComponent />
-
-        <WebcamCapture />
+        <FetchComponent />
+        {/* <WebcamCapture /> */}
         {/* <RotateImage /> */}
       </div>
     )
