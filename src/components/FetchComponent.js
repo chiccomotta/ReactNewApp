@@ -27,7 +27,7 @@ export default class FetchComponent extends React.Component {
   }
 
   notify = () => {
-    var id = toast.warn('PIPPI TI AMO MA STAI ZITTA!', {
+    var id = toast.error('PIPPI TI AMO MA STAI ZITTA!', {
       position: toast.POSITION.TOP_CENTER
     })
 
@@ -39,7 +39,7 @@ export default class FetchComponent extends React.Component {
       <div>
         {this.state.error}
         <button onClick={this.notify}>Notify</button>;
-        <ToastContainer />
+        <ToastContainer hideProgressBar />
       </div>
     )
   }
