@@ -1,13 +1,19 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
+import { actAddCredits } from 'store/ActionCreators'
+
+const mapDispatchToProps = dispatch => {
+  return {
+    addCredits: credits => dispatch(actAddCredits(credits))
+  }
+}
 
 class ControlledComponent extends Component {
-  constructor(props) {
-    super(props)
-
-    this.state = { text: 'il tuo nome' }
-  }
+  state = { text: 'il tuo nome' }
 
   handleChange = event => {
+    this.props.addCredits('ciccio')
+
     this.setState({ text: event.target.value }, () => {
       // Called third
       console.log(this.state)
@@ -25,16 +31,14 @@ class ControlledComponent extends Component {
 
     return (
       <form>
-        <input
-          type="text"
-          defaultValue="Hello react"
-          onChange={this.handleChange}
-          value={this.state.text}
-        />
+        <input type="text" onChange={this.handleChange} value={this.state.text} />
         <button>Submit</button>
       </form>
     )
   }
 }
 
-export default ControlledComponent
+export default connect(
+  null,
+  mapDispatchToProps
+)(ControlledComponent)
