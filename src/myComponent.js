@@ -5,4 +5,7 @@ import withDebug from './hoc/withDebug'
 
 const MyComponent = ({ innerWidth }) => <div>innerWidth: {innerWidth}</div>
 
-export default compose(withResize, withDebug)(MyComponent)
+export default compose(
+  withResize,
+  withDebug
+)(MyComponent)

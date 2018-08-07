@@ -48,4 +48,7 @@ class addTodo extends Component {
   }
 }
 
-export default connect(null, mapDispatchToProps)(addTodo)
+export default connect(
+  null,
+  mapDispatchToProps
+)(addTodo)

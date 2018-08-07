@@ -15,4 +15,7 @@ const componentList = ({ todos, name }) => {
   )
 }
 
-export default connect(mapStateToProps, null)(componentList)
+export default connect(
+  mapStateToProps,
+  null
+)(componentList)

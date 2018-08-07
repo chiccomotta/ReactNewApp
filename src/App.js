@@ -9,6 +9,7 @@ import gatto from './images/gatto.jpg' // Tell Webpack this JS file uses this im
 import MyComponent from './myComponent'
 import WebcamCapture from './components/webcam'
 import RotateImage from './components/RotateImage'
+import ControlledComponent from './components/ControlledComponent'
 
 class App extends Component {
   render() {
@@ -32,6 +33,7 @@ class App extends Component {
         </div>
         <MyComponent />
         <FetchComponent />
+        <ControlledComponent />
         {/* <WebcamCapture /> */}
         {/* <RotateImage /> */}
       </div>

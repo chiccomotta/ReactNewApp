@@ -21,7 +21,7 @@ class RotateImage extends Component {
       canvas.width / 2,
       canvas.height / 2,
       1,
-      direction * Math.PI / 2
+      (direction * Math.PI) / 2
     )
   }
 
