@@ -9,8 +9,11 @@ const mapStateToProps = state => state
 const componentList = ({ todos, name }) => {
   return (
     <div style={style}>
-      <div>{name}</div>
-      <ul>{todos.map((todo, i) => <li key={i}>{todo}</li>)}</ul>
+      <ul>
+        {todos.map((todo, i) => (
+          <li key={i}>{todo}</li>
+        ))}
+      </ul>
     </div>
   )
 }

@@ -12,7 +12,7 @@ const withDebug = Component =>
 
     render() {
       return (
-        <div style={{ border: '10px solid red' }}>
+        <div>
           <Component {...this.props} {...this.state} />
         </div>
       )

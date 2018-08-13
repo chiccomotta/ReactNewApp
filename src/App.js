@@ -6,7 +6,7 @@ import ComponentList from './components/ComponentList'
 import logo from './logo.svg'
 import './App.css'
 import gatto from './images/gatto.jpg' // Tell Webpack this JS file uses this image
-import MyComponent from './myComponent'
+import MyComponent from 'components/myComponent'
 import WebcamCapture from './components/webcam'
 import RotateImage from './components/RotateImage'
 import ControlledComponent from './components/ControlledComponent'
@@ -16,21 +16,11 @@ class App extends Component {
     return (
       <div className="App">
         <header className="App-header">
-          {/* <img src={gatto} />
-          <img src={logo} className="App-logo" alt="logo" /> */}
+          <img src={gatto} />
         </header>
-
         <AddTodo />
-        <div
-          style={{
-            float: 'left',
-            border: '1px solid red',
-            width: '400px',
-            height: '200px'
-          }}
-        >
-          <ComponentList />
-        </div>
+
+        <ComponentList />
         <MyComponent />
         <FetchComponent />
         <ControlledComponent />

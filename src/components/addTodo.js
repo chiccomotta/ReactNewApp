@@ -37,12 +37,11 @@ class addTodo extends Component {
 
   render() {
     return (
-      <div className="addTodo">
+      <div>
         <input type="text" value={this.state.todo} onChange={this.onChange} />
         <button onClick={this.setTodo}>Add todo</button>
         <button onClick={this.addCredits}>Add credits</button>
         <button onClick={this.testThis}>Test This</button>
-        <p>Aggiungi un TODO alla lista</p>
       </div>
     )
   }
