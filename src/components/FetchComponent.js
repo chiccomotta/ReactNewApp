@@ -4,7 +4,8 @@ import { connect } from 'react-redux'
 import { ToastContainer, toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 import { fetchUser } from 'store/ActionCreators'
-import '../App.css'
+import 'App.css'
+import spinner from 'images/spinner.gif' // Tell Webpack this JS file uses this image
 
 /******
     Sono le funzioni che voglio rendere disponibili, tramite le props, al componente.
@@ -16,6 +17,7 @@ const mapDispatchToProps = dispatch => {
   }
 }
 
+// Mappo lo state nelle props del componente
 const mapStateToProps = state => {
   return {
     state
@@ -59,27 +61,28 @@ class FetchComponent extends React.Component {
     const { loading, error } = this.props.state
 
     return (
-      <div className={loading ? 'spinner' : ''}>
-        {loading && <h2>attendere prego....</h2>}
-        {this.state.error}
-        <button onClick={this.notify}>Call remote API</button>;
+      <div>
+        <button onClick={this.notify}>Call remote API</button>
         <ToastContainer hideProgressBar />
-        {!loading &&
-          !error && (
+        <div>
+          {loading && <img src={spinner} alt="" />}
+          {!loading &&
+            !error && (
+              <Fragment>
+                <div>
+                  <h2>{id}</h2>
+                </div>
+                <div className="highligth">
+                  <h2>{title}</h2>
+                </div>
+              </Fragment>
+            )}
+          {error && (
             <Fragment>
-              <div>
-                <h2>{id}</h2>
-              </div>
-              <div className="highligth">
-                <h2>{title}</h2>
-              </div>
+              <div>FAILURE {error}</div>
             </Fragment>
           )}
-        {error && (
-          <Fragment>
-            <div>FAILURE {error}</div>
-          </Fragment>
-        )}
+        </div>
       </div>
     )
   }

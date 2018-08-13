@@ -52,3 +52,7 @@ li {
   width: auto;
   background-color: orange;
 }
+
+.allBlack {
+  background-color: black;
+}
