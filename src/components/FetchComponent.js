@@ -12,7 +12,7 @@ import '../App.css'
 ***/
 const mapDispatchToProps = dispatch => {
   return {
-    fetchUser: () => dispatch(fetchUser())
+    fetchUser: userId => dispatch(fetchUser(userId))
   }
 }
 
@@ -51,28 +51,33 @@ class FetchComponent extends React.Component {
     //   position: toast.POSITION.TOP_CENTER
     // })
 
-    this.props.fetchUser()
+    this.props.fetchUser(Math.floor(Math.random() * (10 - 1 + 1)) + 1)
   }
 
   render() {
-    const { userId, title } = this.props.state.users
-    const { loading } = this.props.state
+    const { id, title } = this.props.state.user
+    const { loading, error } = this.props.state
 
     return (
-      <div>
+      <div className={loading ? 'spinner' : ''}>
         {loading && <h2>attendere prego....</h2>}
         {this.state.error}
         <button onClick={this.notify}>Call remote API</button>;
         <ToastContainer hideProgressBar />
-        {/* <div>{this.props.state.users}</div> */}
-        {!loading && (
+        {!loading &&
+          !error && (
+            <Fragment>
+              <div>
+                <h2>{id}</h2>
+              </div>
+              <div className="highligth">
+                <h2>{title}</h2>
+              </div>
+            </Fragment>
+          )}
+        {error && (
           <Fragment>
-            <div>
-              <h2>{userId}</h2>
-            </div>
-            <div>
-              <h2>{title}</h2>
-            </div>
+            <div>FAILURE {error}</div>
           </Fragment>
         )}
       </div>

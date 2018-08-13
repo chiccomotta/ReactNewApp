@@ -1,0 +1,7 @@
+export const INCREMENT = 'INCREMENT'
+export const DECREMENT = 'DECREMENT'
+export const ADD_TODO = 'ADD_TODO'
+export const ADD_CREDITS = 'ADD_CREDITS'
+export const FETCH_USER_START = 'FETCH_USER_START'
+export const FETCH_USER_SUCCESS = 'FETCH_USER_SUCCESS'
+export const FETCH_USER_FAILURE = 'FETCH_USER_FAILURE'

@@ -43,6 +43,12 @@ li {
 }
 
 .spinner {
-  background-color: red;
+  background-color: yellow;
   border: 2px solid black;
+}
+
+.highligth {
+  display: inline-table;
+  width: auto;
+  background-color: orange;
 }
