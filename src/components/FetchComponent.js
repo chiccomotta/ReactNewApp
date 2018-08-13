@@ -1,8 +1,28 @@
 import React, { Fragment } from 'react'
+import { connect } from 'react-redux'
+
 import { ToastContainer, toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
+import { fetchUser } from 'store/ActionCreators'
+import '../App.css'
 
-export default class FetchComponent extends React.Component {
+/******
+    Sono le funzioni che voglio rendere disponibili, tramite le props, al componente.
+    Queste funzioni dispacciano le action allo store per modificare lo stato globalmente.
+***/
+const mapDispatchToProps = dispatch => {
+  return {
+    fetchUser: () => dispatch(fetchUser())
+  }
+}
+
+const mapStateToProps = state => {
+  return {
+    state
+  }
+}
+
+class FetchComponent extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -27,20 +47,40 @@ export default class FetchComponent extends React.Component {
   }
 
   notify = () => {
-    var id = toast.error('PIPPI TI AMO MA STAI ZITTA!', {
-      position: toast.POSITION.TOP_CENTER
-    })
+    // var id = toast.error('PIPPI TI AMO MA STAI ZITTA!', {
+    //   position: toast.POSITION.TOP_CENTER
+    // })
 
-    console.log(id)
+    this.props.fetchUser()
   }
 
   render() {
+    const { userId, title } = this.props.state.users
+    const { loading } = this.props.state
+
     return (
       <div>
+        {loading && <h2>attendere prego....</h2>}
         {this.state.error}
-        <button onClick={this.notify}>Notify</button>;
+        <button onClick={this.notify}>Call remote API</button>;
         <ToastContainer hideProgressBar />
+        {/* <div>{this.props.state.users}</div> */}
+        {!loading && (
+          <Fragment>
+            <div>
+              <h2>{userId}</h2>
+            </div>
+            <div>
+              <h2>{title}</h2>
+            </div>
+          </Fragment>
+        )}
       </div>
     )
   }
 }
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(FetchComponent)

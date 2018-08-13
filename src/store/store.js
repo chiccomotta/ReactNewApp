@@ -1,5 +1,6 @@
-import { createStore } from 'redux'
+import { createStore, applyMiddleware } from 'redux'
 import update from 'immutability-helper'
+import thunkMiddleware from 'redux-thunk'
 
 // Creo lo stato iniziale
 const initialState = {
@@ -8,11 +9,13 @@ const initialState = {
   role: 'Developer',
   files: [],
   credits: 0,
-  todos: []
+  todos: [],
+  loading: false,
+  users: {}
 }
 
-// Creo lo store (createStore accetta una funziona con 2 parametri: lo stato iniziale e una action)
-const store = createStore((state = initialState, action) => {
+// Reducer
+const mainReducer = (state = initialState, action) => {
   switch (action.type) {
     case 'INCREMENT':
       return {
@@ -36,10 +39,23 @@ const store = createStore((state = initialState, action) => {
       return update(state, { credits: { $set: state.credits + action.credits } })
       break
 
+    case 'FETCH_USER_START':
+      return {
+        ...state,
+        loading: true
+      }
+      break
+
+    case 'FETCH_USER_SUCCESS':
+      return update(state, { loading: { $set: false }, users: { $set: action.result } })
+
     default:
       return state
   }
-})
+}
+
+// Creo lo store (gli passo il middleware thunkMiddleware per le action asincrone)
+const store = createStore(mainReducer, initialState, applyMiddleware(thunkMiddleware))
 
 // ACTIONS: sono oggetti che vengono passati allo store e che descrivono come cambiare lo stato, es:
 var increment = {
