@@ -49,9 +49,9 @@ class FetchComponent extends React.Component {
   }
 
   notify = () => {
-    var id = toast.error('TOASTER NOTIFICATION!', {
-      position: toast.POSITION.TOP_CENTER
-    })
+    // var id = toast.error('TOASTER NOTIFICATION!', {
+    //   position: toast.POSITION.TOP_CENTER
+    // })
 
     this.props.fetchUser(Math.floor(Math.random() * (10 - 1 + 1)) + 1)
   }
