@@ -1,14 +1,20 @@
-// ACTIONS: sono oggetti che vengono passati allo store e che descrivono come cambiare lo stato, es:
+// ACTIONS: sono oggetti che vengono passati allo store e che descrivono come cambiare lo stato.
+// Se passo un oggetto il dispatch è sincrono
+// Se passo una funzione il dispatch è asincrono (utilizo il middleware thunkMiddleware)
+
+// Sync action
 export const increment = {
   type: 'INCREMENT',
   value: 1
 }
 
+// Sync action
 export const decrement = {
   type: 'DECREMENT',
   value: 1
 }
 
+// Sync action
 export const actAddTodo = value => {
   return {
     type: 'ADD_TODO',
@@ -16,6 +22,7 @@ export const actAddTodo = value => {
   }
 }
 
+// Sync action
 export const actAddCredits = credits => {
   return {
     type: 'ADD_CREDITS',
@@ -23,6 +30,7 @@ export const actAddCredits = credits => {
   }
 }
 
+// Async action (redux-thunk: thunkMiddleware)
 export const fetchUser = userId => dispatch => {
   // prima dispatch della action di inizio fetch
   dispatch({ type: 'FETCH_USER_START' })
