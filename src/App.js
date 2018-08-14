@@ -14,7 +14,7 @@ import ControlledComponent from './components/ControlledComponent'
 class App extends Component {
   componentDidMount() {
     this.authenticate().then(() => {
-      const ele = document.getElementById('ipl-progress-indicator')
+      const ele = document.getElementById('app-progress-indicator')
       if (ele) {
         // fade out
         ele.classList.add('available')

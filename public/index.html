@@ -19,19 +19,16 @@
       margin: 0;
       padding: 0;
       width: 100%;
-    }
-
-    body {
       font-family: 'Roboto', sans-serif;
       font-size: 13px;
       -webkit-font-smoothing: antialiased;
     }
 
-    .ipl-progress-indicator.available {
+    .app-progress-indicator.available {
       opacity: 0;
     }
 
-    .ipl-progress-indicator {
+    .app-progress-indicator {
       background-color: #f5f5f5;
       width: 100%;
       height: 100%;
@@ -44,7 +41,7 @@
       z-index: 9999;
     }
 
-    .insp-logo-frame {
+    .app-logo-frame {
       display: -webkit-flex;
       display: -moz-flex;
       display: flex;
@@ -60,24 +57,15 @@
       height: 98%;
     }
 
-    .insp-logo-frame-img {
-      width: 112px;
-      height: 112px;
-      -webkit-align-self: center;
-      -moz-align-self: center;
-      align-self: center;
-      border-radius: 50%;
-    }
-
-    .ipl-progress-indicator-head {
+    .app-progress-indicator-head {
       background-color: lightgray;
       height: 4px;
       overflow: hidden;
       position: relative;
     }
 
-    .ipl-progress-indicator .first-indicator,
-    .ipl-progress-indicator .second-indicator {
+    .app-progress-indicator .first-indicator,
+    .app-progress-indicator .second-indicator {
       background-color: red;
       bottom: 0;
       left: 0;
@@ -92,29 +80,21 @@
       transform: scaleX(0);
     }
 
-    .ipl-progress-indicator .first-indicator {
+    .app-progress-indicator .first-indicator {
       -webkit-animation: first-indicator 2000ms linear infinite;
       -moz-animation: first-indicator 2000ms linear infinite;
       animation: first-indicator 2000ms linear infinite;
     }
 
-    .ipl-progress-indicator .second-indicator {
+    .app-progress-indicator .second-indicator {
       -webkit-animation: second-indicator 2000ms linear infinite;
       -moz-animation: second-indicator 2000ms linear infinite;
       animation: second-indicator 2000ms linear infinite;
     }
 
-    .ipl-progress-indicator .insp-logo {
-      animation: App-logo-spin infinite 20s linear;
-      border-radius: 50%;
-      -webkit-align-self: center;
-      -moz-align-self: center;
-      align-self: center;
-    }
-
-    .loading-text {
+    .app-loading-text {
       margin: auto;
-      font-size: 15px;      
+      font-size: 16px;      
     }
 
     @keyframes App-logo-spin {
@@ -198,13 +178,13 @@
     You need to enable JavaScript to run this app.
   </noscript>
   <!-- Loader for the whole App -->
-  <div class="ipl-progress-indicator" id="ipl-progress-indicator">
-    <div class="ipl-progress-indicator-head">
+  <div class="app-progress-indicator" id="app-progress-indicator">
+    <div class="app-progress-indicator-head">
       <div class="first-indicator"></div>
       <div class="second-indicator"></div>
     </div>
-    <div class="insp-logo-frame">
-      <div class="loading-text"> Loading app, please wait...</div>
+    <div class="app-logo-frame">
+      <div class="app-loading-text"> Sto caricando l'applicazione, attendere prego...</div>
     </div>
   </div>
   <!-- React App -->
