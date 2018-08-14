@@ -53,7 +53,9 @@ class FetchComponent extends React.Component {
     //   position: toast.POSITION.TOP_CENTER
     // })
 
-    this.props.fetchUser(Math.floor(Math.random() * (10 - 1 + 1)) + 1)
+    this.props
+      .fetchUser(Math.floor(Math.random() * (10 - 1 + 1)) + 1)
+      .then(response => console.log(response))
   }
 
   render() {
@@ -79,7 +81,9 @@ class FetchComponent extends React.Component {
             )}
           {error && (
             <Fragment>
-              <div>FAILURE {error}</div>
+              <div>
+                <h2>FAILURE {error}</h2>
+              </div>
             </Fragment>
           )}
         </div>

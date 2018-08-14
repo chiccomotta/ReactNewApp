@@ -12,6 +12,25 @@ import RotateImage from './components/RotateImage'
 import ControlledComponent from './components/ControlledComponent'
 
 class App extends Component {
+  componentDidMount() {
+    this.authenticate().then(() => {
+      const ele = document.getElementById('ipl-progress-indicator')
+      if (ele) {
+        // fade out
+        ele.classList.add('available')
+        setTimeout(() => {
+          // remove from DOM
+          ele.outerHTML = ''
+        }, 2000)
+      }
+    })
+  }
+
+  // fake authentication Promise (simulo il caricamento dell'applicazione)
+  authenticate() {
+    return new Promise(resolve => setTimeout(resolve, 2000))
+  }
+
   render() {
     return (
       <div className="App">
