@@ -54,12 +54,18 @@ const mainReducer = (state = initialState, action) => {
     case FETCH_USER_START:
       return {
         ...state,
-        loading: true
+        loading: true,
+        error: null
       }
       break
 
     case FETCH_USER_SUCCESS:
-      return update(state, { loading: { $set: false }, user: { $set: action.result } })
+      return {
+        ...state,
+        loading: false,
+        error: null,
+        user: action.result
+      }
 
     case FETCH_USER_FAILURE:
       return update(state, { loading: { $set: false }, error: { $set: action.error } })
