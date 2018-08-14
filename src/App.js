@@ -32,21 +32,19 @@ class App extends Component {
   }
 
   render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <img src={gatto} />
-        </header>
-        <AddTodo />
+      return <div className="App">
+          <header className="App-header">
+              <img src={gatto}/>
+          </header>
+          <AddTodo/>
 
-        <ComponentList />
-        <MyComponent />
-        <FetchComponent />
-        <ControlledComponent />
-        {/* <WebcamCapture /> */}
-        {/* <RotateImage /> */}
+          <ComponentList/>
+          <MyComponent/>
+          <FetchComponent/>
+          <ControlledComponent/>
+          {/* <WebcamCapture /> */}
+          {/* <RotateImage /> */}
       </div>
-    )
   }
 }
 

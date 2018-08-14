@@ -1,3 +1,11 @@
 import React from 'react'
 
-export const AboutPage = () => <div>About Page</div>
+export class AboutPage extends React.Component {
+  constructor(props) {
+    super(props)
+  }
+
+  render() {
+    return <div>About Page</div>
+  }
+}
