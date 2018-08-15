@@ -28,23 +28,25 @@ class App extends Component {
 
   // fake authentication Promise (simulo il caricamento dell'applicazione)
   authenticate() {
-    return new Promise(resolve => setTimeout(resolve, 2000))
+    return new Promise(resolve => setTimeout(resolve, 4000))
   }
 
   render() {
-      return <div className="App">
-          <header className="App-header">
-              <img src={gatto}/>
-          </header>
-          <AddTodo/>
+    return (
+      <div className="App">
+        <header className="App-header">
+          <img src={gatto} />
+        </header>
+        <AddTodo />
 
-          <ComponentList/>
-          <MyComponent/>
-          <FetchComponent/>
-          <ControlledComponent/>
-          {/* <WebcamCapture /> */}
-          {/* <RotateImage /> */}
+        <ComponentList />
+        <MyComponent />
+        <FetchComponent />
+        <ControlledComponent />
+        {/* <WebcamCapture /> */}
+        {/* <RotateImage /> */}
       </div>
+    )
   }
 }
 
