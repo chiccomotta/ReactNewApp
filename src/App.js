@@ -10,6 +10,7 @@ import MyComponent from 'components/myComponent'
 import WebcamCapture from './components/webcam'
 import RotateImage from './components/RotateImage'
 import ControlledComponent from './components/ControlledComponent'
+import TimeoutFetchComponent from './components/TimeoutFetchComponent'
 
 class App extends Component {
   componentDidMount() {
@@ -43,6 +44,7 @@ class App extends Component {
         <MyComponent />
         <FetchComponent />
         <ControlledComponent />
+        <TimeoutFetchComponent />
         {/* <WebcamCapture /> */}
         {/* <RotateImage /> */}
       </div>
