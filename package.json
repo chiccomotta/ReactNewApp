@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "abort-controller": "^1.0.2",
     "hoek": "^5.0.3",
     "immutability-helper": "^2.7.0",
     "lodash": "^4.17.10",
