@@ -37,16 +37,23 @@ class TimeoutFetchComponent extends React.Component {
   }
 
   startRequest = () => {
+    // Reset dei messaggi
     this.setState({ message: null, error: null })
+
+    // Creo un oggetto AbortController
     this.abortController = new window.AbortController()
 
+    // Fetch
     fetch('http://localhost:3001/api/testapi', {
       signal: this.abortController.signal,
-      method: 'post',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({ username: 'Chicco Motta' })
+      method: 'POST',
+      headers: new Headers({
+        'Content-Type': 'application/json',
+        pragma: 'no-cache',
+        'cache-control': 'no-cache'
+      }),
+      body: JSON.stringify({ username: 'Chicco Motta' }),
+      credentials: 'include'
     })
       .then(response => {
         return response.text()
@@ -80,13 +87,17 @@ class TimeoutFetchComponent extends React.Component {
   render() {
     return (
       <div>
-        <h2>
-          {this.state.message}{' '}
-          {this.state.error && <div style={{ color: 'red' }}>{this.state.error}</div>}
-          <button onClick={this.startRequest}>Start Request</button>
-          <button onClick={this.abortRequest}>Abort Request</button>
-          <button onClick={this.reload}>Reload</button>
-        </h2>
+        <div>
+          <h2>{this.state.message}</h2>
+        </div>
+        {this.state.error && (
+          <div style={{ color: 'red' }}>
+            <h2>{this.state.error}</h2>
+          </div>
+        )}
+        <button onClick={this.startRequest}>Start Request</button>
+        <button onClick={this.abortRequest}>Abort Request</button>
+        <button onClick={this.reload}>Reload</button>
       </div>
     )
   }
