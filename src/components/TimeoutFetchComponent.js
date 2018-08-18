@@ -11,36 +11,43 @@ class TimeoutFetchComponent extends React.Component {
     }
   }
 
+  xhr = new XMLHttpRequest()
   abortController = null
 
   componentDidMount() {
-    this.abortController = new window.AbortController()
-
-    // Esempio di implementazione di un timeout per una request con fecth
-    Promise.race([
-      fetch('http://localhost:3001/api/testapi', { signal: this.abortController.signal }),
-      new Promise((_, reject) =>
-        setTimeout(() => {
-          this.abortController.abort()
-          //reject(new Error('Timeout'))
-        }, 3000)
-      )
-    ])
-      .then(response => {
-        return response.text()
-      })
-      .then(text => this.setState({ message: text }))
-      .catch(err => {
-        console.log(err)
-        this.setState({ error: 'Timeout API!' })
-      })
+    // this.abortController = new window.AbortController()
+    // // Esempio di implementazione di un timeout per una request con fecth
+    // Promise.race([
+    //   fetch('http://localhost:3001/api/testapi', { signal: this.abortController.signal }),
+    //   new Promise((_, reject) =>
+    //     setTimeout(() => {
+    //       this.abortController.abort()
+    //       //reject(new Error('Timeout'))
+    //     }, 3000)
+    //   )
+    // ])
+    //   .then(response => {
+    //     return response.text()
+    //   })
+    //   .then(text => this.setState({ message: text }))
+    //   .catch(err => {
+    //     console.log(err)
+    //     this.setState({ error: 'Timeout API!' })
+    //   })
   }
 
   startRequest = () => {
     this.setState({ message: null, error: null })
     this.abortController = new window.AbortController()
 
-    fetch('http://localhost:3001/api/testapi', { signal: this.abortController.signal })
+    fetch('http://localhost:3001/api/testapi', {
+      signal: this.abortController.signal,
+      method: 'post',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ username: 'Chicco Motta' })
+    })
       .then(response => {
         return response.text()
       })
@@ -51,8 +58,19 @@ class TimeoutFetchComponent extends React.Component {
       })
   }
 
+  startRequest2 = () => {
+    this.xhr.addEventListener('abort', err => {
+      console.log(err)
+    })
+
+    this.xhr.open('POST', 'http://localhost:3001/api/testapi', true)
+    this.xhr.setRequestHeader('Content-Type', 'application/json')
+    this.xhr.send(JSON.stringify({ username: 'Chiccone' }))
+  }
+
   abortRequest = () => {
     this.abortController.abort()
+    //this.xhr.abort()
   }
 
   reload = () => {
