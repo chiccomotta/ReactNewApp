@@ -60,8 +60,12 @@ class TimeoutFetchComponent extends React.Component {
       })
       .then(text => this.setState({ message: text }))
       .catch(err => {
-        console.log(err)
-        this.setState({ error: 'Request Aborted!' })
+        console.log(err.name)
+        if (err.name === 'AbortError') {
+          this.setState({ error: 'Request Aborted!' })
+        } else {
+          this.setState({ error: 'Unknown error!' })
+        }
       })
   }
 
